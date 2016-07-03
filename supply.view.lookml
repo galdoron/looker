@@ -28,8 +28,7 @@
     suggest_persist_for: 12 hours    
     sql: ${TABLE}.partner
 
-
-  - dimension: group
+  - dimension: LOB
     suggestable: true
     suggest_persist_for: 12 hours  
     type: string
@@ -47,41 +46,38 @@
     type: string
     sql: ${TABLE}.ad_server
 
-  - Measure: inventory
+  - measure: inventory
     type: sum
     sql: ${TABLE}.inventory
 
-  - Measure: impressions
+  - measure: impressions
     type: sum
     sql: ${TABLE}.impressions
 
-  - Measure: revenues
+  - measure: revenues
     type: sum
     sql: ${TABLE}.revenues
 
-  - Measure: media_margin
+  - measure: media_margin
     type: sum
     sql: ${TABLE}.media_margin
 
-  - Measure: fee
+  - measure: fee
     type: sum
     sql: ${TABLE}.fee
 
-  - Measure: gross_margin
+  - measure: gross_margin
     type: sum
     sql: ${TABLE}.gross_margin
 
-  - Measure: ad_server_fees
+  - measure: ad_server_fees
     type: sum
     sql: ${TABLE}.ad_server_fees
 
-  - Measure: platform_fees
+  - measure: platform_fees
     type: sum
     sql: ${TABLE}.platform_fees
 
-#  - dimension: inventory
-#    type: string
-#    sql: ${TABLE}.inventory
 
 #  - dimension: impressions
 #    type: number
