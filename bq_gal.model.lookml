@@ -6,6 +6,7 @@
 # NOTE: please see https://www.looker.com/docs/r/dialects/bigquery
 # NOTE: for BigQuery specific considerations
 
+- explore: demand
 # - explore: 1st_join_table
 
 # - explore: 2nd_join_table
