@@ -8,6 +8,7 @@
 
 - explore: demand
 - explore: supply
+- explore: purify_digital
 # - explore: 1st_join_table
 
 # - explore: 2nd_join_table
