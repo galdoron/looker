@@ -30,7 +30,8 @@
     sql: ${TABLE}.AdvertiserName
 
   - dimension: date
-    type: string
+    timeframes: [date, week,quarter, month]  
+    type: time
     sql: ${TABLE}.date
 
   - measure: impressions
