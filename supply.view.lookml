@@ -2,9 +2,21 @@
 - view: supply
   derived_table:
     sql: |
-      select DAY, partner, inventory, impressions, revenues, media_margin, shortpartnername, GROUP, fee, OWNER, manager, ad_server, gross_margin, ad_server_fees, platform_fees FROM TABLE_QUERY(rivery,'table_id  contains "raw_sara_platform_prt_"')
+      select DAY, partner, inventory, impressions, revenues, media_margin, shortpartnername, GROUP, fee, OWNER, manager, ad_server, gross_margin, ad_server_fees, platform_fees 
+      FROM 
+      TABLE_QUERY(rivery,'table_id contains concat("raw_sara_platform_prt_",year({% parameter start_date %}),month({% parameter start_date %}))')
 
   fields:
+
+  # FILTERS
+  - filter: start_date
+    label: 'FILTER Start Date'
+    suggestions: [2014-12-01, 2014-12-02]
+     
+  - filter: end_date
+    label: 'FILTER End Date'
+    suggestions: [2014-12-01, 2014-12-02]
+     
   - dimension_group: day
     type: time
     timeframes: [date, week,quarter, month]    
