@@ -4,7 +4,12 @@
     sql: |
       select DAY, partner, inventory, impressions, revenues, media_margin, shortpartnername, GROUP, fee, OWNER, manager, ad_server, gross_margin, ad_server_fees, platform_fees 
       FROM 
-      TABLE_QUERY(rivery,'table_id contains concat("raw_sara_platform_prt_",year({% parameter start_date %}),month({% parameter start_date %}))')
+      (
+      TABLE_QUERY(rivery,'table_id contains "raw_sara_platform_prt_" and REGEXP_REPLACE(regexp_extract(table_id,"[^_]([0-9]+_[0-9]+)"),"_","") <= 
+      concat(string(year(DATE_ADD(timestamp({% parameter end_date %}),0,"day"))),SUBSTR(string(date(DATE_ADD(timestamp({% parameter end_date %}),0,"day"))),6,2),SUBSTR(string(date(DATE_ADD(timestamp({% parameter end_date %}),0,"day"))),9,2))
+      and REGEXP_REPLACE(regexp_extract(table_id,"[^_]([0-9]+_[0-9]+)"),"_","") >= 
+      concat(string(year(DATE_ADD(timestamp({% parameter start_date %}),0,"day"))),SUBSTR(string(date(DATE_ADD(timestamp(timestamp({% parameter start_date %})),0,"day"))),6,2),SUBSTR(string(date(DATE_ADD(timestamp({% parameter start_date %}),0,"day"))),9,2))')
+      )
 
   fields:
 
